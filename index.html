@@ -1,8 +1,1011 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hinoda's Annapurna Menu</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #111;
+        color: #fff;
+      }
+
+      .header {
+        background: linear-gradient(to right, #333, #000);
+        text-align: center;
+        padding: 20px 10px;
+      }
+
+      .header img {
+        height: 100px;
+      }
+
+      .title {
+        font-size: 36px;
+        margin: 10px 0;
+        font-family: 'Georgia', serif;
+        color: gold;
+      }
+
+      .subtitle {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: gold;
+      }
+
+      .subtitle span {
+        font-style: italic;
+        font-size: 18px;
+      }
+
+      .accordion-item {
+        background-color: #222;
+        border: 1px solid #444;
+      }
+
+      .accordion-button {
+        background-color: gold;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .accordion-button:not(.collapsed) {
+        color: #fff;
+        background-color: #444;
+      }
+
+      .accordion-body {
+        background-color: #333;
+        color: #ddd;
+      }
+
+      .menu-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #555;
+      }
+
+      .menu {
+        margin: 20px 0;
+        font-size: 18px;
+        font-weight: bold;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+      }
+
+      .menu div {
+        text-align: center;
+        border: 2px solid gold;
+         border-radius: 5px;
+        
+      }
+
+      .offer-section {
+        text-align: center;
+        font-style: italic;
+        font-weight: bold;
+        color: gold;
+        margin: 20px 0;
+      }
+
+      .footer {
+        background-color: #222;
+        text-align: center;
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      .footer span {
+        color: #ccc;
+      }
+    </style>
   </head>
-<body>
-  <h2>Welcome to Annapurna - by HINODA</h2>
-</body>
+  <body>
+    <div class="header">
+      <img src="logo.png" alt="Hinoda's Annapurna Logo">
+      <div class="title">Hinoda's Annapurna</div>
+      <div class="subtitle"> Veg & Non-Veg <br>
+        <span>Flavors you'll love, waiting for you!</span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="menu">
+        <div>Indian</div>
+        <div>Chinese</div>
+        <div>Tandoor</div>
+        <div>South Indian</div>
+        <div>Mocktails</div>
+        <div>Shakes</div>
+      </div>
+    </div>
+    <!-- Accordion Section -->
+    <div class="accordion container my-5" id="menuAccordion">
+      <!-- Accordion 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> SOUPS </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            <div class="menu-item">
+              <span>Veg Clear Soup</span>
+              <span>79</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Manchow Soup</span>
+              <span>89</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Manchow Soup</span>
+              <span>109</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Hot & Sour Soup</span>
+              <span>109</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Sweet Corn Soup</span>
+              <span>89</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Sweet Corn Soup</span>
+              <span>109</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Lemon Coriander Soup</span>
+              <span>89</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Lemon Coriander Soup</span>
+              <span>109</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Cream of Tomato Basil Soup</span>
+              <span>89</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Lungfung Soup</span>
+              <span>119</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Cream of Mushroom Soup</span>
+              <span>89</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Yang Chun Soup</span>
+              <span>119</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Hot and Sour Soup</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Tom Young Soup</span>
+              <span>129</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Accordion dals -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsedals" aria-expanded="false" aria-controls="collapsedals"> DAL & ROTIS </button>
+        </h2>
+        <div id="collapsedals" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            <div class="menu-item">
+              <span>Plain Dal</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>Dal Jeera</span>
+              <span>129</span>
+            </div>
+            <div class="menu-item">
+              <span>Dal Fry</span>
+              <span>149</span>
+            </div>
+            <div class="menu-item">
+              <span>Dal Dhaba</span>
+              <span>169</span>
+            </div>
+            <div class="menu-item">
+              <span>Dal Butter Fry</span>
+              <span>169</span>
+            </div>
+            <div class="menu-item">
+              <span>Tandoori Roti</span>
+              <span>20</span>
+            </div>
+            <div class="menu-item">
+              <span>Butter Tandoori Roti</span>
+              <span>25</span>
+            </div>
+            <div class="menu-item">
+              <span>Masala Kulcha</span>
+              <span>40</span>
+            </div>
+            <div class="menu-item">
+              <span>Paratha</span>
+              <span>20</span>
+            </div>
+            <div class="menu-item">
+              <span>Lachha Paratha</span>
+              <span>40</span>
+            </div>
+            <div class="menu-item">
+              <span>Naan</span>
+              <span>35</span>
+            </div>
+            <div class="menu-item">
+              <span>Butter Naan</span>
+              <span>40</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Accordion 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIndianVeg" aria-expanded="false" aria-controls="collapseIndianVeg"> INDIAN VEG </button>
+        </h2>
+        <div id="collapseIndianVeg" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            <div class="menu-item">
+              <span>Aloo Jeera</span>
+              <span>119</span>
+            </div>
+            <div class="menu-item">
+              <span>Aloo Matar</span>
+              <span>139</span>
+            </div>
+            <div class="menu-item">
+              <span>Bhindi Do Pyaza</span>
+              <span>139</span>
+            </div>
+            <div class="menu-item">
+              <span>Bhindi Kurmure</span>
+              <span>139</span>
+            </div>
+            <div class="menu-item">
+              <span>Aloo Gobhi</span>
+              <span>149</span>
+            </div>
+            <div class="menu-item">
+              <span>Bhindi Masala</span>
+              <span>159</span>
+            </div>
+            <div class="menu-item">
+              <span>Chana Masala</span>
+              <span>169</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Kofta</span>
+              <span>169</span>
+            </div>
+            <div class="menu-item">
+              <span>Rajasthani Kofta</span>
+              <span>169</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Kolhapuri</span>
+              <span>179</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Jhalfrezi</span>
+              <span>179</span>
+            </div>
+            <div class="menu-item">
+              <span>Mix Veg</span>
+              <span>179</span>
+            </div>
+            <div class="menu-item">
+              <span>Gobhi Masala</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Navaratan Korma</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Malai Kofta</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Kadhai</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Dewani Handi</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Methi Malai Matar</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Mushroom Do Pyaza</span>
+              <span>209</span>
+            </div>
+            <div class="menu-item">
+              <span>Mushroom Masala</span>
+              <span>219</span>
+            </div>
+            <div class="menu-item">
+              <span>Mushroom Kadhai</span>
+              <span>229</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Kadhai</span>
+              <span>279</span>
+            </div>
+            <div class="menu-item">
+              <span>Palak Paneer</span>
+              <span>279</span>
+            </div>
+            <div class="menu-item">
+              <span>Methi Malai Paneer</span>
+              <span>279</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Butter Masala</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Tikka Masala</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Sahi Paneer</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Reshmi Paneer</span>
+              <span>299</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Accordion 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIndianNonVeg" aria-expanded="false" aria-controls="collapseIndianNonVeg"> INDIAN NON-VEG </button>
+        </h2>
+        <div id="collapseIndianNonVeg" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            <div class="menu-item">
+              <span>Chicken Bhuna</span>
+              <span>239</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Lapeta</span>
+              <span>239</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Chat Patta</span>
+              <span>249</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Do Pyaza</span>
+              <span>249</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Curry</span>
+              <span>259</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Kolhapuri</span>
+              <span>259</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Punjabi</span>
+              <span>259</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Masala</span>
+              <span>279</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Kadhai</span>
+              <span>279</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Hyderabadi</span>
+              <span>279</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Butter Masala</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Rara Masala</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Lababdar</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Boneless Masala</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Maharaja</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Nilgiri Korma</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Kasturi Boneless</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Tikka Masala</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Mutton Do Pyaza</span>
+              <span>359</span>
+            </div>
+            <div class="menu-item">
+              <span>Mutton Kolhapuri</span>
+              <span>369</span>
+            </div>
+            <div class="menu-item">
+              <span>Mutton Handi</span>
+              <span>379</span>
+            </div>
+            <div class="menu-item">
+              <span>Mutton Dal Ghost</span>
+              <span>379</span>
+            </div>
+            <div class="menu-item">
+              <span>Mutton Ranga Rang</span>
+              <span>379</span>
+            </div>
+            <div class="menu-item">
+              <span>Mutton Masala</span>
+              <span>399</span>
+            </div>
+            <div class="menu-item">
+              <span>Mutton Rogan Josh</span>
+              <span>399</span>
+            </div>
+            <div class="menu-item">
+              <span>Mutton Rara Masala</span>
+              <span>399</span>
+            </div>
+            <div class="menu-item">
+              <span>Mutton Moghlai</span>
+              <span>399</span>
+            </div>
+            <div class="menu-item">
+              <span>Fish Curry</span>
+              <span>279</span>
+            </div>
+            <div class="menu-item">
+              <span>Fish Fry</span>
+              <span>279</span>
+            </div>
+            <div class="menu-item">
+              <span>Fish Masala</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Fish Amritsari</span>
+              <span>299</span>
+            </div>
+            <div class="menu-item">
+              <span>Egg Curry</span>
+              <span>149</span>
+            </div>
+            <div class="menu-item">
+              <span>Egg Bhurji</span>
+              <span>159</span>
+            </div>
+            <div class="menu-item">
+              <span>Egg Masala</span>
+              <span>169</span>
+            </div>
+            <div class="menu-item">
+              <span>Egg Bhurji Curry</span>
+              <span>179</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Accordion 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tandooriveg" aria-expanded="false" aria-controls="tandooriveg"> TANDOORI VEG </button>
+        </h2>
+        <div id="tandooriveg" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            <div class="menu-item">
+              <span>Paneer Tikka</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Hariyali Tikka</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Sikandari Tikka</span>
+              <span>219</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Afghani Tikka</span>
+              <span>219</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Lahori Tikka</span>
+              <span>219</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Achari Tikka</span>
+              <span>219</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Lahsuni Tikka</span>
+              <span>219</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Malai Tikka</span>
+              <span>239</span>
+            </div>
+            <div class="menu-item">
+              <span>Mushroom Tikka</span>
+              <span>209</span>
+            </div>
+            <div class="menu-item">
+              <span>Mushroom Achari Tikka</span>
+              <span>209</span>
+            </div>
+            <div class="menu-item">
+              <span>Mushroom Hariyali Tikka</span>
+              <span>209</span>
+            </div>
+            <div class="menu-item">
+              <span>Mushroom Hajari Tikka</span>
+              <span>209</span>
+            </div>
+            <div class="menu-item">
+              <span>Stuffed Mushroom Tikka</span>
+              <span>229</span>
+            </div>
+            <div class="menu-item">
+              <span>Harabhara Kebab</span>
+              <span>159</span>
+            </div>
+            <div class="menu-item">
+              <span>Kankad Kebab</span>
+              <span>169</span>
+            </div>
+            <div class="menu-item">
+              <span>Makhmali Kebab</span>
+              <span>169</span>
+            </div>
+            <div class="menu-item">
+              <span>Dahi Ka Sole</span>
+              <span>169</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Galouti Kebab</span>
+              <span>179</span>
+            </div>
+            <div class="menu-item">
+              <span>Andhra Kebab</span>
+              <span>179</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Seekh Kebab</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Sunheri Khasta Kebab</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Mushroom Galouti Kebab</span>
+              <span>199</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Accordion 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tandooriNonVeg" aria-expanded="false" aria-controls="tandooriNonVeg"> TANDOORI NON-VEG </button>
+        </h2>
+        <div id="tandooriNonVeg" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            <div class="menu-item">
+              <span>Chicken Tikka</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Hajari Tikka</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Kali Mirch Tikka</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Kasturi Tikka</span>
+              <span>209</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Hariyali Tikka</span>
+              <span>219</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Jalandhar Tikka</span>
+              <span>219</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Lahsuni Tikka</span>
+              <span>239</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Malai Tikka</span>
+              <span>249</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Afghani Tikka</span>
+              <span>249</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Jafrani Tikka</span>
+              <span>259</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Seekh Kabab</span>
+              <span>279</span>
+            </div>
+            <div class="menu-item">
+              <span>Reshmi Chicken Tikka</span>
+              <span>299</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Accordion 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> RICE & BIRYANI </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            <div class="menu-item">
+              <span>Steam Rice</span>
+              <span>119</span>
+            </div>
+            <div class="menu-item">
+              <span>Jeera Rice</span>
+              <span>139</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Pulav</span>
+              <span>139</span>
+            </div>
+            <div class="menu-item">
+              <span>Kashmiri Pulav</span>
+              <span>149</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Pulav</span>
+              <span>159</span>
+            </div>
+            <div class="menu-item">
+              <span>Mutton Pulav</span>
+              <span>269</span>
+            </div>
+            <div class="menu-item">
+              <span>Egg Biryani</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Dum Biryani</span>
+              <span>119 / 239</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Hyderabad Biryani</span>
+              <span>149 / 289</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Boneless Biryani</span>
+              <span>159 / 299</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Roast Biryani</span>
+              <span>169 / 219</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Tikka Biryani</span>
+              <span>179 / 229</span>
+            </div>
+            <div class="menu-item">
+              <span>Mutton Biryani</span>
+              <span>189 / 289</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Accordion 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#chineese" aria-expanded="false" aria-controls="chineese"> CHINEESE </button>
+        </h2>
+        <div id="chineese" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            <div class="menu-item">
+              <span>Chinese Bhel</span>
+              <span>119</span>
+            </div>
+            <div class="menu-item">
+              <span>Crispy Corn</span>
+              <span>129</span>
+            </div>
+            <div class="menu-item">
+              <span>Gobi Chilli</span>
+              <span>129</span>
+            </div>
+            <div class="menu-item">
+              <span>Corn Chilli</span>
+              <span>139</span>
+            </div>
+            <div class="menu-item">
+              <span>Honey Chilli Potato</span>
+              <span>139</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Manchuria</span>
+              <span>139</span>
+            </div>
+            <div class="menu-item">
+              <span>Lovely Corn</span>
+              <span>149</span>
+            </div>
+            <div class="menu-item">
+              <span>Crispy Veg</span>
+              <span>149</span>
+            </div>
+            <div class="menu-item">
+              <span>Mushroom Salt & Pepper</span>
+              <span>159</span>
+            </div>
+            <div class="menu-item">
+              <span>Shanghai Roll</span>
+              <span>159</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Manchuria</span>
+              <span>179</span>
+            </div>
+            <div class="menu-item">
+              <span>Mushroom Chilli</span>
+              <span>179</span>
+            </div>
+            <div class="menu-item">
+              <span>Mushroom 65</span>
+              <span>179</span>
+            </div>
+            <div class="menu-item">
+              <span>Veg Spring Roll</span>
+              <span>179</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer 65</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Schezwan Paneer</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Dragon Paneer</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Chilli</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Paneer Shashlik</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Chinese Cigar Roll</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Chilli (Wet / Dry)</span>
+              <span>169</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken 65</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Bang Bang</span>
+              <span>189</span>
+            </div>
+            <div class="menu-item">
+              <span>Crispy Chicken</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Garlic Chicken</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Schezwan Chicken</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Wings</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Lollipop</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Tai Pai</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Chicken Drums of Heaven</span>
+              <span>219</span>
+            </div>
+            <div class="menu-item">
+              <span>Fish Chilli</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Schezwan Fish</span>
+              <span>199</span>
+            </div>
+            <div class="menu-item">
+              <span>Fish 65</span>
+              <span>219</span>
+            </div>
+            <div class="menu-item">
+              <span>Fish Crunchy</span>
+              <span>219</span>
+            </div>
+            <div class="menu-item">
+              <span>Mustard Fish</span>
+              <span>219</span>
+            </div>
+            <div class="menu-item">
+              <span>Egg Chilli</span>
+              <span>149</span>
+            </div>
+            <div class="menu-item">
+              <span>Egg 65</span>
+              <span>159</span>
+            </div>
+            <div class="menu-item">
+              <span>Egg Schezwan</span>
+              <span>169</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Accordion 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> SHAKES & MOCKTAILS </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            <div class="menu-item">
+              <span>Vanilla Milk Shake</span>
+              <span>89</span>
+            </div>
+            <div class="menu-item">
+              <span>Strawberry Milk Shake</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>Oreo Milk Shake</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>KitKat Milk Shake</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>Butterscotch Milk Shake</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>Mango Milk Shake</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>Cold Coffee</span>
+              <span>89</span>
+            </div>
+            <div class="menu-item">
+              <span>Cold Coffee with Ice Cream</span>
+              <span>109</span>
+            </div>
+            <div class="menu-item">
+              <span>Fruit Punch</span>
+              <span>119</span>
+            </div>
+            <div class="menu-item">
+              <span>Fresh Lime Water (Sweet / Salt)</span>
+              <span>59</span>
+            </div>
+            <div class="menu-item">
+              <span>Fresh Lime Soda (Sweet / Salt)</span>
+              <span>69</span>
+            </div>
+            <div class="menu-item">
+              <span>Virgin Mojito</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>Blue Lagoon Mojito</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>Pan Mojito</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>Watermelon Mojito</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>Black Currant Mojito</span>
+              <span>99</span>
+            </div>
+            <div class="menu-item">
+              <span>Tooty Frooty Ice Cream</span>
+              <span>129</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="offer-section text-center">
+        <h4 style="font-style: italic; font-weight: bold; color: gold; text-shadow: 0 0 5px yellow; border: 2px solid gold; display: inline-block; padding: 5px 15px; border-radius: 5px;"> Experience Flavorful Moments & Exciting Offers! </h4>
+        <div class="row mt-4">
+          <div class="col-6 text-end">
+            <ul style="list-style-type: none; padding: 0; margin: 0; color: white; font-weight: bold;">
+              <li>• Authentic Hyderabadi Flavors</li>
+              <li>• North & South Indian Thali</li>
+            </ul>
+          </div>
+          <div class="col-6 text-start">
+            <ul style="list-style-type: none; padding: 0; margin: 0; color: white; font-weight: bold;">
+              <li>• Exclusive Happy Hours</li>
+              <li>• Special Student Offers</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-3" style="color: white; font-weight: bold;"> • Birthday & Kitty Party Bookings </div>
+      </div>
+    </div>
+    <div class="footer">
+      <span>Tuteja Complex, Shop.No.4, Beside Bank of Baroda, Rohinipuram, Gol Chowk, RAIPUR-492001 | Ph: 9039663176</span>
+    </div>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
