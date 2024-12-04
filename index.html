@@ -176,6 +176,35 @@
         opacity: 1;
         visibility: visible;
     }
+
+      /*FLASHING EFFECT*/
+      .dishes-showcase {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 20px orange;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  animation: fadeInOut 6s infinite;
+}
+
+.flashing-dish {
+  color: white;
+  text-shadow: 0 0 5px #ff9100, 0 0 10px #ff9100, 0 0 20px yellow;
+  animation: blink 1s infinite alternate;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  25%, 75% { opacity: 1; }
+}
+
+@keyframes blink {
+  0% { opacity: 1; text-shadow: 0 0 5px #ff9100, 0 0 20px yellow; }
+  100% { opacity: 0.6; text-shadow: 0 0 2px #ff9100; }
+}
+
 </style>
   </head>
   <body>
@@ -185,6 +214,13 @@
       <div class="subtitle"> Veg & Non-Veg <br>
         <span>Flavors you'll love, waiting for you!</span>
       </div>
+
+       <div class="dishes-showcase">
+        <span class="flashing-dish">Muddhapappu Avakaya</span>
+        <span class="flashing-dish">Hinoda's Curd Rice</span>
+        <span class="flashing-dish">Ghee Sambar Rice</span>
+      </div>
+      
     </div>
     <div class="container">
       <div class="menu">
