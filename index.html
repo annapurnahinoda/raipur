@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
     <title>Hinoda's Annapurna Menu</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -195,6 +196,28 @@
         <div>Shakes</div>
       </div>
     </div>
+
+    <!-- Accordion Section -->
+    <div class="accordion container my-5" id="menuAccordion">
+      <!-- Accordion 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsetiffin" aria-expanded="false" aria-controls="collapsetiffin"> SOUPS </button>
+        </h2>
+        <div id="collapsetiffin" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#menuAccordion">
+          <div class="accordion-body">
+            
+           <div id="tiffins-menu">
+           <h2>Tiffins</h2>
+           </div>
+            
+          </div>
+        </div>
+      </div>
+
+   
+
+    
     <!-- Accordion Section -->
     <div class="accordion container my-5" id="menuAccordion">
       <!-- Accordion 1 -->
@@ -1099,5 +1122,77 @@
 </script>
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+     <script>
+    window.onload = function() {
+      // List of Excel files for each category
+      const excelFiles = {
+        tiffins: 'https://annapurnahinoda.github.io/raipur/tiffins.xlsx',
+        rice: 'https://annapurnahinoda.github.io/raipur/rice.xlsx',
+        drinks: 'https://annapurnahinoda.github.io/raipur/drinks.xlsx'
+      };
+
+      // Load data for each category (Tiffins, Rice, Drinks)
+      loadMenu(excelFiles.tiffins, 'tiffins-menu');
+      loadMenu(excelFiles.rice, 'rice-menu');
+      loadMenu(excelFiles.drinks, 'drinks-menu');
+    };
+
+    // Function to load and display menu from an Excel file
+    function loadMenu(fileUrl, containerId) {
+      fetch(fileUrl)
+        .then(response => response.arrayBuffer())
+        .then(data => {
+          const workbook = XLSX.read(data, { type: 'array' });
+
+          // Assuming the first sheet is the one we want
+          const sheet = workbook.Sheets[workbook.SheetNames[0]];
+
+          // Convert the sheet data to JSON format
+          const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+          // Generate the HTML for each menu item
+          displayMenuItems(jsonData, containerId);
+        })
+        .catch(error => {
+          console.error(`Error loading ${fileUrl}:`, error);
+        });
+    }
+
+    // Function to display menu items in the specified container
+    function displayMenuItems(data, containerId) {
+      const menuContainer = document.getElementById(containerId);
+
+      // Clear previous menu data
+      menuContainer.innerHTML = '';
+
+      // Iterate over the data (skip the header row if present)
+      data.forEach(row => {
+        // Ensure there are at least two columns (item name and price)
+        if (row.length >= 2) {
+          const itemName = row[0]; // Item name (first column)
+          const itemPrice = row[1]; // Item price (second column)
+
+          // Create a new div element for this menu item
+          const menuItemDiv = document.createElement('div');
+          menuItemDiv.classList.add('menu-item');
+
+          // Create span elements for item name and price
+          const nameSpan = document.createElement('span');
+          nameSpan.textContent = itemName;
+
+          const priceSpan = document.createElement('span');
+          priceSpan.textContent = itemPrice;
+
+          // Append the spans to the menu item div
+          menuItemDiv.appendChild(nameSpan);
+          menuItemDiv.appendChild(priceSpan);
+
+          // Append the menu item div to the menu container
+          menuContainer.appendChild(menuItemDiv);
+        }
+      });
+    }
+  </script>
   </body>
 </html>
