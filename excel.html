@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu from Excel</title>
+  <title>Menu Items</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
   <style>
+    .menu-container {
+      margin-bottom: 30px;
+    }
     .menu-item {
       display: flex;
       justify-content: space-between;
@@ -21,14 +24,36 @@
 <body>
 
   <h1>Menu Items</h1>
-  <div id="menu-container"></div>
+
+  <!-- Menu containers for each category -->
+  <div id="tiffins-menu" class="menu-container">
+    <h2>Tiffins</h2>
+  </div>
+  <div id="rice-menu" class="menu-container">
+    <h2>Rice</h2>
+  </div>
+  <div id="drinks-menu" class="menu-container">
+    <h2>Drinks</h2>
+  </div>
 
   <script>
     window.onload = function() {
-      const excelFileUrl = 'https://annapurnahinoda.github.io/raipur/tiffins.xlsx'; // Path to your Excel file
+      // List of Excel files for each category
+      const excelFiles = {
+        tiffins: 'https://annapurnahinoda.github.io/raipur/tiffins.xlsx',
+        rice: 'https://annapurnahinoda.github.io/raipur/rice.xlsx',
+        drinks: 'https://annapurnahinoda.github.io/raipur/drinks.xlsx'
+      };
 
-      // Fetch the Excel file
-      fetch(excelFileUrl)
+      // Load data for each category (Tiffins, Rice, Drinks)
+      loadMenu(excelFiles.tiffins, 'tiffins-menu');
+      loadMenu(excelFiles.rice, 'rice-menu');
+      loadMenu(excelFiles.drinks, 'drinks-menu');
+    };
+
+    // Function to load and display menu from an Excel file
+    function loadMenu(fileUrl, containerId) {
+      fetch(fileUrl)
         .then(response => response.arrayBuffer())
         .then(data => {
           const workbook = XLSX.read(data, { type: 'array' });
@@ -40,17 +65,18 @@
           const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
           // Generate the HTML for each menu item
-          displayMenuItems(jsonData);
+          displayMenuItems(jsonData, containerId);
         })
         .catch(error => {
-          console.error('Error loading Excel file:', error);
+          console.error(`Error loading ${fileUrl}:`, error);
         });
-    };
+    }
 
-    function displayMenuItems(data) {
-      const menuContainer = document.getElementById('menu-container');
+    // Function to display menu items in the specified container
+    function displayMenuItems(data, containerId) {
+      const menuContainer = document.getElementById(containerId);
 
-      // Clear the previous menu data
+      // Clear previous menu data
       menuContainer.innerHTML = '';
 
       // Iterate over the data (skip the header row if present)
