@@ -3,37 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Load Excel on Page Load</title>
+  <title>Menu from Excel</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
   <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+      padding: 5px;
+      border: 1px solid #ddd;
     }
-    table, th, td {
-      border: 1px solid black;
-    }
-    th, td {
-      padding: 8px;
-      text-align: left;
+    .menu-item span {
+      margin: 0 10px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Excel Data Loaded on Page Load</h1>
-
-  <table id="excel-table">
-    <thead>
-      <tr></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+  <h1>Menu Items</h1>
+  <div id="menu-container"></div>
 
   <script>
     window.onload = function() {
-      const excelFileUrl = 'https://annapurnahinoda.github.io/raipur/tiffins.xlsx'; // URL of the Excel file on your server  C:\Users\dindi\Downloads\html from excel
-//const excelFileUrl = 'https://drive.usercontent.google.com/download?id=16UuPPm92veG1oHZnIpjjJz-yvg6LaJcU&export=download&authuser=0&confirm=t&uuid=67eb4ba6-564f-46be-9259-6aed0c0f5bfc&at=AENtkXb9iqiO5GwJkm_TBEQvR4VU:1733319636640';
+      const excelFileUrl = 'https://annapurnahinoda.github.io/raipur/tiffins.xlsx'; // Path to your Excel file
+
+      // Fetch the Excel file
       fetch(excelFileUrl)
         .then(response => response.arrayBuffer())
         .then(data => {
@@ -42,44 +36,51 @@
           // Assuming the first sheet is the one we want
           const sheet = workbook.Sheets[workbook.SheetNames[0]];
 
-          // Convert sheet to JSON format
+          // Convert the sheet data to JSON format
           const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-          // Display the data in a table
-          displayTable(jsonData);
+          // Generate the HTML for each menu item
+          displayMenuItems(jsonData);
         })
         .catch(error => {
           console.error('Error loading Excel file:', error);
         });
     };
 
-    function displayTable(data) {
-      const tableHead = document.querySelector('#excel-table thead tr');
-      const tableBody = document.querySelector('#excel-table tbody');
+    function displayMenuItems(data) {
+      const menuContainer = document.getElementById('menu-container');
 
-      // Clear the previous table data
-      tableHead.innerHTML = '';
-      tableBody.innerHTML = '';
+      // Clear the previous menu data
+      menuContainer.innerHTML = '';
 
-      // Add table headers (first row of the data)
-      const headerRow = data[0];
-      headerRow.forEach(cell => {
-        const th = document.createElement('th');
-        th.textContent = cell;
-        tableHead.appendChild(th);
-      });
+      // Iterate over the data (skip the header row if present)
+      data.forEach(row => {
+        // Ensure there are at least two columns (item name and price)
+        if (row.length >= 2) {
+          const itemName = row[0]; // Item name (first column)
+          const itemPrice = row[1]; // Item price (second column)
 
-      // Add table rows
-      data.slice(1).forEach(row => {
-        const tr = document.createElement('tr');
-        row.forEach(cell => {
-          const td = document.createElement('td');
-          td.textContent = cell;
-          tr.appendChild(td);
-        });
-        tableBody.appendChild(tr);
+          // Create a new div element for this menu item
+          const menuItemDiv = document.createElement('div');
+          menuItemDiv.classList.add('menu-item');
+
+          // Create span elements for item name and price
+          const nameSpan = document.createElement('span');
+          nameSpan.textContent = itemName;
+
+          const priceSpan = document.createElement('span');
+          priceSpan.textContent = itemPrice;
+
+          // Append the spans to the menu item div
+          menuItemDiv.appendChild(nameSpan);
+          menuItemDiv.appendChild(priceSpan);
+
+          // Append the menu item div to the menu container
+          menuContainer.appendChild(menuItemDiv);
+        }
       });
     }
   </script>
+
 </body>
 </html>
