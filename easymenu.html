@@ -118,6 +118,43 @@
         flex: 1 1 100%;
       }
     }
+    
+.flip-container {
+  perspective: 2000px;
+  position: relative;
+  width: 100%;
+}
+
+.flipper {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  transition: 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-container.flip .flipper {
+  transform: rotateY(180deg);
+}
+
+ 
+.page {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+.front {
+  z-index: 2;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
   </style>
 </head>
 <body>
@@ -128,8 +165,12 @@
       <button class="flip-button" onclick="togglePage()">🔄 Flip Page</button>
     </header>
 
+
+<div class="flip-container" id="flipContainer">
+  <div class="flipper">
+
     <!-- PAGE 1: South Indian -->
-    <div id="page1" class="page active">
+    <div id="page1" class="page front active">
       <div class="menu-grid">
         <!-- Include all 6 sections from PAGE 1 -->
         <div class="menu-section"><h2>Thalis</h2><table><tbody>
@@ -200,10 +241,8 @@
       </div>
     </div>
 
-    <!-- PAGE 2: Chinese + Fast Food --> 
-  
-  
-    <div id="page2" class="page">
+    <!-- PAGE 2: Chinese + Fast Food -->  
+    <div id="page2" class="page back">
       <!-- Top Half -->
       <div class="menu-grid">
         <div class="menu-section">
@@ -304,14 +343,15 @@
     </div> 
     
     </div>
+    </div>
+    
+    </div>
 
   <script>
     function togglePage() {
-      const page1 = document.getElementById('page1');
-      const page2 = document.getElementById('page2');
-      page1.classList.toggle('active');
-      page2.classList.toggle('active');
-    }
+  const container = document.getElementById('flipContainer');
+  container.classList.toggle('flip');
+}
   </script>
 </body>
 </html>
